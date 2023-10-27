@@ -1,7 +1,7 @@
 Readme
 
 JavaScript Requirements Met:
- 1. getElementByID: 
+ 1. getElementByID: <div>
  2. querySelector: <nav>
  3. Parent/child/sibling: 
  4. Iteration: menu link collection
@@ -12,7 +12,7 @@ JavaScript Requirements Met:
      8. Dynamically change HTML content:
      9. Dynamically change CSS:
     10. Dynamically modify attribute:
-11. Two+ Event Listeners: 
+11. Two+ Event Listeners: mainMenu.addEventListener() and 
 12. Two+ BOM properties/methods:
 13. One+ form and/or input with HTML validation
 14. One+ form and/or input with DOM validation
