@@ -1,4 +1,92 @@
-const menuItems = [ { text: 'about', href: '#' }, { text: 'kitchens', href: '#' }, { text: 'baths', href: '#' }, { text: 'gardens', href: '#' }, { text: 'animals', href: '#' }, { text: 'outdoors', href: '#' }, { text: 'holidays', href: '#' } ]
+const menuItems = [
+    { text: 'about', href: '#' },
+    {
+        text: 'kitchens', href: '#', subLinks: [
+            { text: 'Current Kitchen', href: '#' },
+            { text: 'Dream Kitchen', href: '#' },
+            { text: 'Ideas', href: '#' },
+            { text: 'Memories', href: '#' },
+            { text: 'Recipes', href: '#' },
+            { text: 'Wishlist', href: '#' },
+            { text: 'Questions', href: '#' },
+            // { text: '', href: '#' },
+        ]
+    },
+    {
+        text: 'baths', href: '#', subLinks: [
+            { text: 'Current Bath', href: '#' },
+            { text: 'Dream Bath', href: '#' },
+            { text: 'Ideas', href: '#' },
+            { text: 'Memories', href: '#' },
+            { text: 'Wishlist', href: '#' },
+            { text: 'Questions', href: '#' },
+            // { text: '', href: '#' },
+            // { text: '', href: '#' },
+        ]
+    },
+    {
+        text: 'gardens', href: '#', subLinks: [
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: 'Questions', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+        ]
+    },
+    {
+        text: 'animals', href: '#', subLinks: [
+            { text: 'Pets', href: '#' },
+            { text: 'Food', href: '#' },
+            { text: 'Memories', href: '#' },
+            { text: 'Mortgage', href: '#' },
+            { text: 'Wishlist', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+        ]
+    },
+    {
+        text: 'outdoors', href: '#', subLinks: [
+            { text: 'Balls (basket,foot,etc)', href: '#' },
+            { text: 'Boating', href: '#' },
+            { text: 'Cycling', href: '#' },
+            { text: 'Fishing', href: '#' },
+            { text: 'Golf', href: '#' },
+            { text: 'Hunting', href: '#' },
+            { text: 'Memories', href: '#' },
+            { text: 'Running', href: '#' },
+            { text: 'Swimming', href: '#' },
+        ]
+    },
+    {
+        text: 'holidays', href: '#', subLinks: [
+            { text: 'Christmas', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: 'Easter', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: 'Hanukkah', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+            { text: '', href: '#' },
+        ]
+    },
+]
 
 let mainMenu = document.querySelector( '#whichSpace' );
 let menuLinks = loadMenu();
