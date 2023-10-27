@@ -1,7 +1,7 @@
 Readme
 
 JavaScript Requirements Met:
- 1. getElementByID: <h1>
+ 1. getElementByID: 
  2. querySelector: <nav>
  3. Parent/child/sibling: 
  4. Iteration: menu link collection
