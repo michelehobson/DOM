@@ -1,95 +1,4 @@
-const menuItems = [
-    { text: 'about', href: '#' },
-    {
-        text: 'kitchens', href: '#', subLinks: [
-            { text: 'Current Kitchen', href: '#' },
-            { text: 'Dream Kitchen', href: '#' },
-            { text: 'Ideas', href: '#' },
-            { text: 'Memories', href: '#' },
-            { text: 'Recipes', href: '#' },
-            { text: 'Wishlist', href: '#' },
-            { text: 'Questions', href: '#' },
-            // { text: '', href: '#' },
-        ]
-    },
-    {
-        text: 'baths', href: '#', subLinks: [
-            { text: 'Current Bath', href: '#' },
-            { text: 'Dream Bath', href: '#' },
-            { text: 'Ideas', href: '#' },
-            { text: 'Memories', href: '#' },
-            { text: 'Wishlist', href: '#' },
-            { text: 'Questions', href: '#' },
-            // { text: '', href: '#' },
-            // { text: '', href: '#' },
-        ]
-    },
-    {
-        text: 'gardens', href: '#', subLinks: [
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: 'Questions', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-        ]
-    },
-    {
-        text: 'animals', href: '#', subLinks: [
-            { text: 'Pets', href: '#' },
-            { text: 'Food', href: '#' },
-            { text: 'Memories', href: '#' },
-            { text: 'Mortgage', href: '#' },
-            { text: 'Wishlist', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-        ]
-    },
-    {
-        text: 'outdoors', href: '#', subLinks: [
-            { text: 'Balls (basket,foot,etc)', href: '#' },
-            { text: 'Boating', href: '#' },
-            { text: 'Cycling', href: '#' },
-            { text: 'Fishing', href: '#' },
-            { text: 'Golf', href: '#' },
-            { text: 'Hunting', href: '#' },
-            { text: 'Memories', href: '#' },
-            { text: 'Running', href: '#' },
-            { text: 'Swimming', href: '#' },
-        ]
-    },
-    {
-        text: 'holidays', href: '#', subLinks: [
-            { text: 'Christmas', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: 'Easter', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: 'Hanukkah', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-            { text: '', href: '#' },
-        ]
-    },
-]
-
 let mainMenu = document.querySelector( '#whichSpace' );
-let menuLinks = loadMenu();
 mainMenu.classList.add( 'whichSpace', 'a' );
 
 let H2 = document.querySelector( 'h2' );
@@ -97,16 +6,6 @@ const div1 = document.getElementById( 'div1' )
 const header = document.querySelector( 'header' )
 const H1 = document.querySelector( 'h1' );
 H1.classList.add( 'flex-center' )
-
-function loadMenu() {
-    for ( let item of menuItems ) {
-        let newItem = document.createElement( 'a' );
-        newItem.textContent = item.text;
-        newItem.setAttribute( 'href', item.href )
-        mainMenu.append( newItem );
-    }
-    return mainMenu;
-}
 
 let clearScreen = () => {
     H2 = '';
@@ -133,9 +32,9 @@ const fLink = () => {
     H2.replaceWith( '' );
     H1.innerText = 'The Portfolio of Friends and Food';
 }
-const oLink = () => {
+const sLink = () => {
     H2.replaceWith( '' );
-    H1.innerText = 'The Portfolio of All Things Outdoors';
+    H1.innerText = 'The Portfolio of All Things Sports';
 }
 const hLink = () => {
     H2.replaceWith( '' );
@@ -155,7 +54,7 @@ mainMenu.addEventListener( 'click', ( e ) => {
     else if ( e.target.text === 'baths' ) { bLink(); }
     else if ( e.target.text === 'gardens' ) { gLink(); }
     else if ( e.target.text === 'animals' ) { fLink(); }
-    else if ( e.target.text === 'outdoors' ) { oLink(); }
+    else if ( e.target.text === 'sports' ) { sLink(); }
     else if ( e.target.text === 'holidays' ) { hLink(); }
 } )
 
