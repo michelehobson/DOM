@@ -102,6 +102,14 @@ let buildSubMenus = (...arr) => {
         sm1.setAttribute('href', arr[0][b].href);
         subMenu1.append(sm1);
         b++
+        let c = 0;
+        for (const objs2 in arr[0]) {
+            let sm2 = document.createElement('a');
+            sm2.textContent = arr[0][b][c].text
+            sm2.setAttribute('href', arr[0][b][c].href);
+            subMenu2.append(sm2);
+            c++
+        }
     }
 }
 

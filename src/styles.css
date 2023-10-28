@@ -5,8 +5,8 @@
     font-family: 'Agbalumo', sans-serif; /*'Bungee Spice', sans-serif;*/
     font-size: 1.5em;
     text-decoration: none;
-    position: absolute;
-    height: 100%;
+    /* position: absolute; */
+    /* height: 100%; */
 }
 .flex-center {
     display: flex;
@@ -16,6 +16,11 @@
     font-weight: 400;
     font-size: 3em;
 }
+.flex-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 .kitchen {
     display: flex;
     justify-content: center;
@@ -31,9 +36,8 @@ a:nth-of-type(1), a:nth-of-type(2),a:nth-of-type(3),a:nth-of-type(4),a:nth-of-ty
     font-weight: bold;
 }
 
-.liSmall {
+/* .liSmall {
     font-size: .75em;
-    /* display: none; */
 }
 
 .noDecor {
@@ -44,14 +48,14 @@ a:nth-of-type(1), a:nth-of-type(2),a:nth-of-type(3),a:nth-of-type(4),a:nth-of-ty
 }
 
 #mainMenu {
-    /* display: flex;
-    flex-direction: column;
-    flex-wrap: wrap; */
     display: block;
     width: 100%;
 }
-#mainMenu:hover + #dropdown{
+#mainMenu:hover + #dropdown {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-around;
 }
+#mainMenu +  li:hover {
+    display: flex;
+    flex-flow: column nowrap;
+} */
