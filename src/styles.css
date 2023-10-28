@@ -5,8 +5,9 @@
     font-family: 'Agbalumo', sans-serif; /*'Bungee Spice', sans-serif;*/
     font-size: 1.5em;
     text-decoration: none;
-    /* position: absolute; */
-    /* height: 100%; */
+    line-height: 5rem;
+    background-color: yellow;
+
 }
 .flex-center {
     display: flex;
@@ -18,8 +19,14 @@
 }
 .flex-around {
     display: flex;
+    flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
+    font-family: 'Kay Pho Du', serif;
+    font-weight: 400;
+    font-size: 1em;    
+    padding: 0px 150px 0px 150px;
+    
   }
 .kitchen {
     display: flex;
@@ -29,33 +36,14 @@
     font-weight: 400;
     font-size: 1em;
 }
-a:nth-of-type(1), a:nth-of-type(2),a:nth-of-type(3),a:nth-of-type(4),a:nth-of-type(5),a:nth-of-type(6),a:nth-of-type(7){
+.activeLink {
+    background-color: blueviolet;
+    color: white;
+  }
+a {
     text-decoration: none;
 }
 .bold {
     font-weight: bold;
 }
 
-/* .liSmall {
-    font-size: .75em;
-}
-
-.noDecor {
-    list-style-type: none;
-}
-#dropdown {
-    display: none;
-}
-
-#mainMenu {
-    display: block;
-    width: 100%;
-}
-#mainMenu:hover + #dropdown {
-    display: flex;
-    flex-flow: column nowrap;
-}
-#mainMenu +  li:hover {
-    display: flex;
-    flex-flow: column nowrap;
-} */

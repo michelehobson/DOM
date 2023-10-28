@@ -63,11 +63,11 @@ const menuItems = [
     },
     {
         text: 'sports', href: '#', subLinks: [
-            {text: 'Balls (basket,foot,etc)', href: '#'},
+            {text: 'Balling', href: '#'},
             {text: 'Boating', href: '#'},
             {text: 'Cycling', href: '#'},
             {text: 'Fishing', href: '#'},
-            {text: 'Golf', href: '#'},
+            {text: 'Golfing', href: '#'},
             {text: 'Hunting', href: '#'},
             {text: 'Memories', href: '#'},
             {text: 'Running', href: '#'},
@@ -93,9 +93,8 @@ const menuItems = [
 ]
 
 let buildSubMenus = (...arr) => {
-    console.log(arr)
-    subMenu1.innerHTML = '';
     let b = 0;
+    subMenu1.innerHTML = '';
     for (const objs in arr[0]) {
         let sm1 = document.createElement('a');
         sm1.textContent = arr[0][b].text
@@ -103,38 +102,35 @@ let buildSubMenus = (...arr) => {
         subMenu1.append(sm1);
         b++
     }
+
 }
 
 function loadMenu(e) {
     for(let a = 0; a < menuItems.length; a++) {
-        console.log(menuItems[a].text)
         let mm = document.createElement('a');
         mm.textContent = menuItems[a].text;
         mm.setAttribute('href', menuItems[a].href)
         mainMenu.append(mm);
-        const row = menuItems[a];
-        let b = 0;
-        buildSubMenus(menuItems[a].subLinks);
     }
-    // for(let b = 0; b < 1; b++) {
-    //     if (menuItems[a].subLinks === null) {
-    //         break;
-    //     }
-    //     let sm1 = document.createElement('a');
-    //     sm1.textContent = menuItems[a].subLinks
-    //     sm1.setAttribute('href', menuItems[a].subLinks);
-    //     subMenu1.append(sm1);
-    // }
-return mainMenu;
+    return mainMenu;
 }
 
 let mainMenu = document.querySelector('#whichSpace');
 mainMenu.classList.add('whichSpace', 'a');
+mainMenu.style.height = '100%';
+
 
 let subMenu1 = document.querySelector('#subMenu1');
+subMenu1.classList.add('flex-around')
+subMenu1.style.height = '100%';
+subMenu1.style.top = '0'
+
 let subMenu2 = document.querySelector('#subMenu2');
-let subMenuLinks = document.querySelectorAll('a');
-let menuLinks = loadMenu();
+subMenu2.classList.add('flex-around')
+subMenu2.style.height = '100%';
+subMenu2.style.top = '0'
+
+loadMenu();
 
 let H2 = document.querySelector('h2');
 const div1 = document.getElementById('div1')
@@ -142,10 +138,7 @@ const header = document.querySelector('header')
 const H1 = document.querySelector('h1');
 H1.classList.add('flex-center')
 
-
-
-
-
+let activeLink = '';
 
 let clearScreen = () => {
     H2 = '';
@@ -156,8 +149,7 @@ const aLink = () => {
 const kLink = () => {
     H1.innerText = 'Our Shared Kitchen Portfolio'
     H2.classList.add('kitchen')
-    H2.innerHTML = '<span class="bold">Everything Kitchen: </span> (<i> wishlist, recipes, images, current/dream kitchen, etc./i>)';
-    console.log(typeof H2)
+    H2.innerHTML = '<span class="bold">Everything Kitchen: </span> (<i> wishlist, recipes, images, current/dream kitchen, etc.</li>)';
     div1.append(H2);
 }
 const bLink = () => {
@@ -186,14 +178,54 @@ mainMenu.addEventListener('click', (e) => {
     if(e.target.tagName !== 'A') {
         return;
     }
+    e.target.classList.toggle('activeLink');
+
+    let allAnchorTags = document.querySelectorAll('a');
+    let i = 0, param = 0, active = false;
+    for(let anchor of allAnchorTags) {
+        if(e.target !== anchor && anchor.classList.contains('activeLink')) {
+            anchor.classList.remove('activeLink');
+            subMenu1.style.top = '0';
+        } else if(anchor.classList.contains('activeLink') && e.target.text !== 'about' && e.target.text === anchor.text) {
+            param = i;
+            active = true;
+        } else if (e.target.text === 'about') {
+            subMenu1.innerHTML = '';
+        }
+        i++;
+    }
+
+    if(active) {
+        subMenu1.style.top = '100%'
+        buildSubMenus(menuItems[param].subLinks);
+    }
+
     if(e.target.text === 'about') {
         H2.replaceWith('');
         aLink();
     }
-    else if(e.target.text === 'kitchens') {kLink();}
-    else if(e.target.text === 'baths') {bLink();}
-    else if(e.target.text === 'gardens') {gLink();}
-    else if(e.target.text === 'animals') {fLink();}
-    else if(e.target.text === 'sports') {sLink();}
-    else if(e.target.text === 'holidays') {hLink();}
+    else if(e.target.text === 'kitchens') {
+        H2.replaceWith('');
+        kLink();
+    }
+    else if(e.target.text === 'baths') {
+        H2.replaceWith('');
+        bLink();
+    }
+    else if(e.target.text === 'gardens') {
+        H2.replaceWith('');
+        gLink();
+    }
+    else if(e.target.text === 'animals') {
+        H2.replaceWith('');
+        fLink();
+    }
+    else if(e.target.text === 'sports') {
+        H2.replaceWith('');
+        sLink();
+    }
+    else if(e.target.text === 'holidays') {
+        H2.replaceWith('');
+        hLink();
+    }
 })
