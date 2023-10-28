@@ -92,10 +92,10 @@ const menuItems = [
     },
 ]
 
-const buildSubMenus = (...arr) => {
+let buildSubMenus = (...arr) => {
     let b = 0;
     subMenu1.innerHTML = '';
-    for(const objs in arr[0]) {
+    for (const objs in arr[0]) {
         let sm1 = document.createElement('a');
         sm1.textContent = arr[0][b].text
         sm1.setAttribute('href', arr[0][b].href);
@@ -140,6 +140,38 @@ H1.classList.add('flex-center')
 
 let activeLink = '';
 
+let clearScreen = () => {
+    H2 = '';
+}
+const aLink = () => {
+    H1.innerText = 'About Our Shared Portfolio';
+}
+const kLink = () => {
+    H1.innerText = 'Our Shared Kitchen Portfolio'
+    H2.classList.add('kitchen')
+    H2.innerHTML = '<span class="bold">Everything Kitchen: </span> (<i> wishlist, recipes, images, current/dream kitchen, etc.</li>)';
+    div1.append(H2);
+}
+const bLink = () => {
+    H2.replaceWith('');
+    H1.innerText = 'Portfolio of Our Amazing Bathrooms';
+}
+const gLink = () => {
+    H2.replaceWith('');
+    H1.innerText = 'Portfolio of the Green and Brown Thumbed';
+}
+const fLink = () => {
+    H2.replaceWith('');
+    H1.innerText = 'The Portfolio of Friends and Food';
+}
+const sLink = () => {
+    H2.replaceWith('');
+    H1.innerText = 'The Portfolio of All Things Sports';
+}
+const hLink = () => {
+    H2.replaceWith('');
+    H1.innerText = 'Holiday Portfolio';
+}
 
 mainMenu.addEventListener('click', (e) => {
     e.preventDefault();
@@ -157,7 +189,7 @@ mainMenu.addEventListener('click', (e) => {
         } else if(anchor.classList.contains('activeLink') && e.target.text !== 'about' && e.target.text === anchor.text) {
             param = i;
             active = true;
-        } else if(e.target.text === 'about') {
+        } else if (e.target.text === 'about') {
             subMenu1.innerHTML = '';
         }
         i++;
@@ -168,56 +200,32 @@ mainMenu.addEventListener('click', (e) => {
         buildSubMenus(menuItems[param].subLinks);
     }
 
-    pageHeadings(e.target.text);
-})
-
-subMenu1.addEventListener('click', (e) => {
-    e.preventDefault();
-    if(e.target.tagName !== 'A') {
-        return;
+    if(e.target.text === 'about') {
+        H2.replaceWith('');
+        aLink();
     }
-    e.target.classList.toggle('activeLink');
-
-})
-
-const pageHeadings = (value) => {
-    if(value === 'about') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'About Our Shared Portfolio';
-        })();
-    } else if(value === 'kitchens') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Our Shared Kitchen Portfolio'
-            H2.classList.add('kitchen')
-            H2.innerHTML = '<span class="bold">Everything Kitchen: </span> (<i> wishlist, recipes, images, current/dream kitchen, etc.</li>)';
-            div1.append(H2);
-        })();
-    } else if(value === 'baths') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Portfolio of Our Amazing Bathrooms';
-        })();
-    } else if(value === 'gardens') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Portfolio of the Green and Brown Thumbed';
-        })();
-    } else if(value === 'animals') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'The Portfolio of Friends and Food';
-        })();
-    } else if(value === 'sports') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'The Portfolio of All Things Sports';
-        })();
-    } else if(value === 'holidays') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Holiday Portfolio';
-        })();
+    else if(e.target.text === 'kitchens') {
+        H2.replaceWith('');
+        kLink();
     }
-}
+    else if(e.target.text === 'baths') {
+        H2.replaceWith('');
+        bLink();
+    }
+    else if(e.target.text === 'gardens') {
+        H2.replaceWith('');
+        gLink();
+    }
+    else if(e.target.text === 'animals') {
+        H2.replaceWith('');
+        fLink();
+    }
+    else if(e.target.text === 'sports') {
+        H2.replaceWith('');
+        sLink();
+    }
+    else if(e.target.text === 'holidays') {
+        H2.replaceWith('');
+        hLink();
+    }
+})

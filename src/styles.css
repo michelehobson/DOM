@@ -1,8 +1,8 @@
 .whichSpace{
     display: flex;
     justify-content: space-around;
-    flex-flow: row nowrap;
-    font-family: 'Agbalumo', sans-serif; /*'Bungee Spice', sans-serif;*/
+    flex-flow: row wrap;
+    font-family: 'Agbalumo', sans-serif;
     font-size: 1.5em;
     text-decoration: none;
     line-height: 5rem;
@@ -19,13 +19,14 @@
 }
 .flex-around {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
     font-family: 'Kay Pho Du', serif;
     font-weight: 400;
     font-size: 1em;    
     padding: 0px 150px 0px 150px;
+    background-color: greenyellow;
     
   }
 .kitchen {
