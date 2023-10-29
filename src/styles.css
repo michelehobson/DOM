@@ -138,4 +138,9 @@ h1 {
     margin: 0
 }
 
-;
+#hdr {
+    font-weight: bold;
+    font-size: 2em;
+    color: black;
+    text-align: left;
+}

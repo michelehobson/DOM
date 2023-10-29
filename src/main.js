@@ -182,16 +182,20 @@ const writeLocal = (key) => {
         readWrite.className = 'readWrite';
         readAndWrite.appendChild(readWrite);
 
+        const h = document.createElement("H2"); 
+        h.innerText = document.querySelector('#hdr').value;
+        readWrite.appendChild(h);
+
         const p = document.createElement("P");
         p.innerText = document.querySelector('#txtInput').value;
         readWrite.appendChild(p);
 
-        p.innerText = document.querySelector('#txtInput').value;
-        readWrite.appendChild(p);
+        // p.innerText = document.querySelector('#txtInput').value;
+        // readWrite.appendChild(p);
 
-        // const i = document.createElement('IMG');
-        // output = document.querySelector('#imgUpload').value;
-        // readWrite.appendChild(i);
+        const i = document.createElement('IMG');
+        output = document.querySelector('#imgUpload').value;
+        readWrite.appendChild(i);
 
         localStorage.setItem(key, readAndWrite.innerHTML);
         localStorage.getItem(key);
@@ -509,7 +513,7 @@ subMenu1.addEventListener('click', (e) => {
 })
 
 btnSubmit.addEventListener('click', (e) => {
-
+    e.preventDefault();
     let stopTheSubmission = false;
     if(imgUpload.files.length > 0) {
         let ext = imgUpload.value.split('.').pop();
