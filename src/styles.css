@@ -124,7 +124,7 @@ a {
 }
 
 .growImage {
-    display: block;
+    display: inline-block;
     width: 300+px;
 }
 
@@ -146,7 +146,6 @@ a {
     display: flex;
     justify-content: flex-end;
     flex-flow: column;
-
 }
 
 p, h1 {

@@ -114,8 +114,6 @@ subMenu2.style.top = '0';
 loadMenu();
 
 let whosActive = '';
-let imgSubmitted = false;
-let msgSubmitted = false;
 let sentByBtnSubmit = false;
 
 let H2 = document.querySelector('h2');
@@ -129,6 +127,9 @@ const displayImage = document.querySelector('.displayImage')
 const imgUpload = document.querySelector('#imgUpload');
 let url;
 let txtInput = document.getElementsByName('txtInput');
+const output = document.querySelector('#output')
+
+
 
 txtInput.hidden = true;
 
@@ -176,6 +177,7 @@ const mainMenuPageHdgs = (value) => {
         })();
     }
 }
+
 
 const writeLocal = (key) => {
     if(sentByBtnSubmit) {
@@ -577,25 +579,23 @@ btnSubmit.addEventListener('click', (e) => {
     let stopTheSubmission = false;
     if(imgUpload.files.length > 0) {
         let ext = imgUpload.value.split('.').pop();
-        if(ext !== 'jpg' && ext !== 'png') {
+        if(ext !== 'jpg' && ext !== 'png' && ext !== 'jpeg' && ext !== 'gif') {
             const h3 = document.getElementById('iFt');
             const node = document.createTextNode('Invalid File Type');
             h3.appendChild(node);
             const s1 = document.getElementById('s1');
             s1.append(document.getElementById('s1').firstElementChild.textContent);
             console.log('firstElementChild: ' + document.getElementById('s1').firstElementChild.textContent);
+            alert('jpeg, jpg, png, and gif are the only accepted formats.')
             stopTheSubmission = true
         }
     } else {
         imgUpload = document.getElementById('output');
         image.src = URL.createObjectURL(e.target.files[0]);
-        imgSubmitted = true;
     }
     if(txtInput.length === 0) {
         txtInput.focus();
         stopTheSubmission = true;
-    } else {
-        msgSubmitted = true;
     }
 
     if(!stopTheSubmission) {
@@ -627,16 +627,15 @@ btnSubmit.addEventListener('click', (e) => {
     }
 })
 
-btnReset.addEventListener('click', (e) => {
+btnReset.addEventListener('click', () => {
     txtInput.value = '';
-    const file =
-        document.querySelector('#imgUpload');
+    const file = document.querySelector('#imgUpload');
     file.value = '';
 })
 
-imgUpload.addEventListener('click', (e) => {
-    growImage = document.getElementById('imgUpload');
+output.addEventListener('click', () => {
+    growImage = document.querySelector('#output');
     growImage.classList.add('growImage');
-    // const url = growImage.getAttribute('src');
-    // window.open(url, 'Image')
+    window.open();
+  
 })
