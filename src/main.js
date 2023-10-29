@@ -120,11 +120,12 @@ let H2 = document.querySelector('h2');
 const div1 = document.getElementById('div1');
 const header = document.querySelector('header');
 const H1 = document.querySelector('h1');
-const btnSubmit = document.querySelector('.btnSubmit');
-const btnReset = document.querySelector('.btnReset');
+const btnSubmit = document.querySelector('#btnSubmit');
+const btnReset = document.querySelector('#btnReset');
 const displayImage = document.querySelector('.displayImage')
-const imgUpload = document.getElementsByName('imgUpload');
-const txtInput = document.getElementsByName('txtInput');
+const imgUpload = document.querySelector('#imgUpload');
+let txtInput = document.getElementsByName('txtInput');
+
 txtInput.hidden = true;
 
 H1.classList.add('flex-center');
@@ -468,6 +469,43 @@ subMenu1.addEventListener('click', (e) => {
 })
 
 btnSubmit.addEventListener('click', (e) => {
-    if (imgUpload.value === null) { console.log('IMAGE REQUIRED')}
+
+    let stopTheSubmission = false;
+    if(imgUpload.files.length > 0) {
+        let ext = imgUpload.value.split('.').pop();
+        if(ext !== 'jpg' && ext !== 'png') {
+            const h3 = document.getElementById('iFt');
+            const node = document.createTextNode('Invalid File Type');
+            h3.appendChild(node);
+            const s1 = document.getElementById('s1');
+            s1.append(document.getElementById('s1').firstElementChild.textContent)
+            console.log('firstElementChild: ' + document.getElementById('s1').firstElementChild.textContent)
+            stopTheSubmission = true
+        }
+    } else {
+        imgUpload = document.getElementById('output');
+        image.src = URL.createObjectURL(e.target.files[0])
+    }
+    if(txtInput.length === 0) {
+        txtInput.focus();
+        stopTheSubmission = true
+    }
+
+    if(!stopTheSubmission) {
+        
+    }
 })
-btnReset.addEventListener('click', (e) => {})
+
+imgUpload.addEventListener('click', (e) => {
+    growImage = document.getElementById('imgUpload');
+    growImage.classList.add('growImage');
+    const url = growImage.getAttribute('src');
+    window.open(url, 'Image')
+})
+
+btnReset.addEventListener('click', (e) => {
+    txtInput.value = '';
+    const file =
+                document.querySelector('#imgUpload');
+            file.value = '';
+})

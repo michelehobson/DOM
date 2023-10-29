@@ -24,22 +24,21 @@
 
     <div id="div2" class="div2">
         <form action="" id="form" class="form">
-            <section class="s1">
-                <label for="imgUpload">Upload image
-                    <input type="file" name="imgUpload">
-                    <input class="images" type="image" name="displayImage" hidden>
-                </label>
+            <section class="s1" id="s1">
+                <h3 id="iFt"></h3>
+                <input type="file" id="imgUpload" onchange="loadImg(event)" style="display: none;" accept="image/*" name="image">
+                <label for="imgUpload" class="imgLabel" >Upload Image</label>
             </section>
             <section class="s2">
-                <label><textarea name="txtInput" class="txtArea" cols="100" rows="10" placeholder="Message"></textarea></label>
+                <label><textarea id="txtInput" name="txtInput" class="txtArea" cols="100" rows="10" placeholder="Message"></textarea><img id="output" class="images"/></label>
             </section>
             <section class="s3">
-                <input name="terms" type="checkbox" required />
+                <input name="terms" type="checkbox" required checked />
                 <label for="terms">I agree to the&nbsp;<a href="#">Terms of Use</a>.</label>
             </section>
             <section class="s4">
-                <button class="btnSubmit" type="submit">Submit</button>
-                <button class="btnReset">Reset</button>
+                <button id="btnSubmit" type="submit">Submit</button>
+                <button id="btnReset">Reset</button>
             </section>
         </form>
     </div>
@@ -47,6 +46,12 @@
     </main>
     <footer></footer>
     <script src="src/main.js"></script>
+    <script>
+        let loadImg = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
 </body>
 
 </html>
