@@ -117,6 +117,7 @@ loadMenu();
 let whosActive = '';
 let imgSubmitted = false;
 let msgSubmitted = false;
+let sentByBtnSubmit = false;
 
 let H2 = document.querySelector('h2');
 const div1 = document.getElementById('div1');
@@ -133,6 +134,7 @@ txtInput.hidden = true;
 H1.classList.add('flex-center');
 
 let activeLink = '';
+let activeSubLink = '';
 
 const mainMenuPageHdgs = (value) => {
     whosActive = value;
@@ -171,16 +173,42 @@ const mainMenuPageHdgs = (value) => {
     }
 }
 
+const writeLocal = (key) => {
+    if(sentByBtnSubmit) {
+        console.log("INSIDE WRITELOCAL")
+        const readAndWrite = document.getElementById("readAndWrite");
+
+        const readWrite = document.createElement('DIV');
+        readWrite.className = 'readWrite';
+        readAndWrite.appendChild(readWrite);
+
+        const p = document.createElement("P");
+        p.innerText = document.querySelector('#txtInput').value;
+        readWrite.appendChild(p);
+
+        p.innerText = document.querySelector('#txtInput').value;
+        readWrite.appendChild(p);
+
+        // const i = document.createElement('IMG');
+        // output = document.querySelector('#imgUpload').value;
+        // readWrite.appendChild(i);
+
+        localStorage.setItem(key, readAndWrite.innerHTML);
+        localStorage.getItem(key);
+        alert("localStorage (Key):\n" + localStorage.getItem(key));
+    }
+}
+
 const kitchen = (value) => {
     txtInput.hidden = false;
     imgUpload.hidden = false;
-    // displayImage.hidden = false;
     btnReset.hidden = false;
     btnSubmit.hidden = false;
+
     if(value === 'Current...') {
         (() => {
             H1.innerText = 'Current Kitchens';
-            if(dataSubmitted){}
+            writeLocal('kitCur');
         })();
     } else if(value === 'Dream...') {
         (() => {
@@ -207,6 +235,8 @@ const kitchen = (value) => {
             H1.innerText = 'Kitchen Questions';
         })();
     }
+
+    console.log('const kitchen(): ' + localStorage.getItem("kitCur"));
 }
 
 const bath = (value) => {
@@ -445,27 +475,33 @@ subMenu1.addEventListener('click', (e) => {
             H2.replaceWith('');
             switch(whosActive) {
                 case 'kitchens':
+                    activeSubLink = e.target.text;
                     kitchen(e.target.text);
                     break;
                 case 'baths':
+                    activeSubLink = e.target.text;
                     bath(e.target.text);
                     break;
                 case 'gardens':
+                    activeSubLink = e.target.text;
                     garden(e.target.text);
                     break;
                 case 'animals':
+                    activeSubLink = e.target.text;
                     animal(e.target.text);
                     break;
                 case 'sports':
+                    activeSubLink = e.target.text;
                     sport(e.target.text);
                     break;
                 case 'holidays':
+                    activeSubLink = e.target.text;
                     holiday(e.target.text);
                     break;
                 default:
+                    activeSubLink = '';
                     break;
             }
-
         } else if(e.target.text !== 'Recipes') {
             subMenu2.innerHTML = '';
         }
@@ -500,36 +536,32 @@ btnSubmit.addEventListener('click', (e) => {
 
     if(!stopTheSubmission) {
         H2.replaceWith('');
+        sentByBtnSubmit = true;
         switch(whosActive) {
             case 'kitchens':
-                kitchen(e.target.text);
+                kitchen(activeSubLink);
+                console.log('activeSubLink: ' + activeSubLink)
                 break;
             case 'baths':
-                bath(e.target.text);
+                bath(activeSubLink);
                 break;
             case 'gardens':
-                garden(e.target.text);
+                garden(activeSubLink);
                 break;
             case 'animals':
-                animal(e.target.text);
+                animal(activeSubLink);
                 break;
             case 'sports':
-                sport(e.target.text);
+                sport(activeSubLink);
                 break;
             case 'holidays':
-                holiday(e.target.text);
+                holiday(activeSubLink);
                 break;
             default:
                 break;
         }
+        sentByBtnSubmit = false;
     }
-})
-
-imgUpload.addEventListener('click', (e) => {
-    growImage = document.getElementById('imgUpload');
-    growImage.classList.add('growImage');
-    // const url = growImage.getAttribute('src');
-    window.open(url, 'Image')
 })
 
 btnReset.addEventListener('click', (e) => {
@@ -537,4 +569,11 @@ btnReset.addEventListener('click', (e) => {
     const file =
         document.querySelector('#imgUpload');
     file.value = '';
+})
+
+imgUpload.addEventListener('click', (e) => {
+    growImage = document.getElementById('imgUpload');
+    growImage.classList.add('growImage');
+    // const url = growImage.getAttribute('src');
+    // window.open(url, 'Image')
 })
