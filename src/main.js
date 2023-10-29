@@ -115,8 +115,8 @@ subMenu2.style.top = '0';
 loadMenu();
 
 let whosActive = '';
-let imageUploaded = false;
-
+let imgSubmitted = false;
+let msgSubmitted = false;
 
 let H2 = document.querySelector('h2');
 const div1 = document.getElementById('div1');
@@ -180,6 +180,7 @@ const kitchen = (value) => {
     if(value === 'Current...') {
         (() => {
             H1.innerText = 'Current Kitchens';
+            if(dataSubmitted){}
         })();
     } else if(value === 'Dream...') {
         (() => {
@@ -488,11 +489,13 @@ btnSubmit.addEventListener('click', (e) => {
     } else {
         imgUpload = document.getElementById('output');
         image.src = URL.createObjectURL(e.target.files[0]);
-        imageUploaded = true;
+        imgSubmitted = true;
     }
     if(txtInput.length === 0) {
         txtInput.focus();
         stopTheSubmission = true;
+    } else {
+        msgSubmitted = true;
     }
 
     if(!stopTheSubmission) {
