@@ -1,4 +1,3 @@
-
 const menuItems = [
     {text: 'about', href: '#'},
     {
@@ -121,6 +120,7 @@ let sentByBtnSubmit = false;
 
 let H2 = document.querySelector('h2');
 const div1 = document.getElementById('div1');
+const div2 = document.getElementById('div2');
 const header = document.querySelector('header');
 const H1 = document.querySelector('h1');
 const btnSubmit = document.querySelector('#btnSubmit');
@@ -134,12 +134,15 @@ txtInput.hidden = true;
 
 H1.classList.add('flex-center');
 
+document.querySelector('.div2').style.display = 'none';
+
 let activeLink = '';
 let activeSubLink = '';
 
 const mainMenuPageHdgs = (value) => {
     whosActive = value;
     H2.replaceWith('');
+    document.querySelector('.div2').style.display = 'none';
     if(value === 'about') {
         (() => {
             H1.innerText = 'About Our Shared Portfolio';
@@ -176,14 +179,13 @@ const mainMenuPageHdgs = (value) => {
 
 const writeLocal = (key) => {
     if(sentByBtnSubmit) {
-        console.log("INSIDE WRITELOCAL")
         const readAndWrite = document.getElementById("readAndWrite");
 
         const readWrite = document.createElement('DIV');
         readWrite.className = 'readWrite';
         readAndWrite.appendChild(readWrite);
 
-        const h = document.createElement("H2"); 
+        const h = document.createElement("H2");
         h.innerText = document.querySelector('#hdr').value;
         readWrite.appendChild(h);
 
@@ -245,8 +247,6 @@ const kitchen = (value) => {
             writeLocal('kitQA');
         })();
     }
-
-    console.log('const kitchen(): ' + localStorage.getItem("kitCur"));
 }
 
 const bath = (value) => {
@@ -358,7 +358,7 @@ const animal = (value) => {
             H1.innerText = 'Animal Wishlist';
             writeLocal('aniWish');
         })();
-            writeLocal('ani');
+        writeLocal('ani');
     } else if(value === 'Questions') {
         (() => {
             H1.innerText = 'Animal Questions';
@@ -526,6 +526,7 @@ subMenu1.addEventListener('click', (e) => {
             subMenu2.style.top = '0';
         } else if(e.target === anchor && anchor.classList.contains('activeLink')) {
             H2.replaceWith('');
+            document.querySelector('.div2').style.display = 'flex';
             switch(whosActive) {
                 case 'kitchens':
                     activeSubLink = e.target.text;
@@ -566,11 +567,7 @@ imgUpload.addEventListener('change', () => {
     reader.readAsDataURL(imgUpload.files[0]);
     reader.addEventListener('load', () => {
         url = reader.result;
-        // console.log('url: ' + url)
-        // const img = new Image;
-        // img.src = url;
-        // document.body.appendChild(img);
-        var image = document.getElementById('output');
+        let image = document.getElementById('output');
         image.src = url;
     })
 })

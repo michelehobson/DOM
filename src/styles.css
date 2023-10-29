@@ -7,7 +7,6 @@
     text-decoration: none;
     line-height: 5rem;
     background-color: yellow;
-
 }
 
 .flex-center {
@@ -97,7 +96,8 @@ a {
     font-size: 1em;
 }
 
-.s1, .s2 {
+.s1,
+.s2 {
     margin-bottom: 50px;
 }
 
@@ -129,7 +129,6 @@ a {
 }
 
 .readWrite {
-    border: 1px solid red;
     margin: 5px;
     outline: 1px solid #888;
     border: 0px solid #918989;
@@ -137,17 +136,28 @@ a {
     width: 70vw;
     height: fit-content;
     margin: 50px auto 50px auto;
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: column wrap;
 }
 
-p,
-h1 {
+.readWrite img {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: column;
+
+}
+
+p, h1 {
     margin: 0
 }
 
-#hdr {
+.hdr {
     font-weight: bold;
     font-size: 2em;
     color: black;
     text-align: left;
     background-color: rgb(166, 235, 28);
 }
+

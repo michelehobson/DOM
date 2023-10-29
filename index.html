@@ -26,16 +26,16 @@
         <form action="" id="form" class="form">
             <section class="s1" id="s1">
                 <h3 id="iFt"></h3>
-                <input type="file" id="imgUpload" style="display: none;" accept="image/*" name="image">
-                <label for="imgUpload" class="imgLabel" >Upload Image</label>
+                <input id="imgUpload" type="file" style="display: none;" accept="image/*" name="image">
+                <label for="imgUpload" id="imgLabel" class="imgLabel" >Upload Image</label>
             </section>
             <section class="s2">
-                <label><input id="hdr" name="hdr" type="text" placeholder="Title" required></label>
+                <label><input id="hdr" class="hdr" name="hdr" type="text" placeholder="Title" required></label>
                 <label><textarea id="txtInput" name="txtInput" class="txtArea" cols="100" rows="10" placeholder="Message"></textarea><img id="output" class="images"/></label>
             </section>
             <section class="s3">
-                <input name="terms" type="checkbox" required />
-                <label for="terms">I agree to the&nbsp;<a href="#">Terms of Use</a>.</label>
+                <input id="chk" name="terms" type="checkbox" required />
+                <label id="terms" for="terms">I agree to the&nbsp;<a  href="#">Terms of Use</a>.</label>
             </section>
             <section class="s4">
                 <button id="btnSubmit" type="submit">Submit</button>
