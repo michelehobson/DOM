@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,11 +22,28 @@
         <h2 id="H2"></h2>
     </div>
 
-    <main>
+    <div id="div2" class="div2">
         <form action="" id="form" class="form">
-            <label><input name="imgUpload" class="images" type="image" hidden></label>
-            <label><textarea name="txtInput" class="txtArea" cols="50" rows="10" placeholder="Message" hidden required></textarea></label>
+            <section class="s1">
+                <label for="imgUpload">Upload image
+                    <input type="file" name="imgUpload">
+                    <input class="images" type="image" name="displayImage" hidden>
+                </label>
+            </section>
+            <section class="s2">
+                <label><textarea name="txtInput" class="txtArea" cols="100" rows="10" placeholder="Message"></textarea></label>
+            </section>
+            <section class="s3">
+                <input name="terms" type="checkbox" required />
+                <label for="terms">I agree to the&nbsp;<a href="#">Terms of Use</a>.</label>
+            </section>
+            <section class="s4">
+                <button class="btnSubmit" type="submit">Submit</button>
+                <button class="btnReset">Reset</button>
+            </section>
         </form>
+    </div>
+    <main>
     </main>
     <footer></footer>
     <script src="src/main.js"></script>

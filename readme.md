@@ -14,8 +14,8 @@ JavaScript Requirements Met:
     10. Dynamically modify attribute:
 11. Two+ Event Listeners: mainMenu.addEventListener() and 
 12. Two+ BOM properties/methods:
-13. One+ form and/or input with HTML validation: <textArea> Defined and validated in index.HTML
-14. One+ form and/or input with DOM validation: <image> Defined in index.HTML and validated in main.js
+13. One+ form and/or input with HTML validation: <checkbox> Defined and validated in index.HTML
+14. One+ form and/or input with DOM validation: <image> and <textArea> Defined in index.HTML and validated in main.js
 15. Error Free
 16. Commit Frequently
 17. Readme

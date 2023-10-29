@@ -1,3 +1,4 @@
+
 const menuItems = [
     {text: 'about', href: '#'},
     {
@@ -102,37 +103,43 @@ mainMenu.classList.add('whichSpace', 'a');
 mainMenu.style.height = '100%';
 
 let subMenu1 = document.querySelector('#subMenu1');
-subMenu1.classList.add('subMenu1')
+subMenu1.classList.add('subMenu1');
 subMenu1.style.height = '100%';
-subMenu1.style.top = '0'
+subMenu1.style.top = '0';
 
 let subMenu2 = document.querySelector('#subMenu2');
-subMenu2.classList.add('flex-column')
+subMenu2.classList.add('flex-column');
 subMenu2.style.height = '100%';
-subMenu2.style.top = '0'
+subMenu2.style.top = '0';
 
 loadMenu();
 
 let whosActive = '';
 
 let H2 = document.querySelector('h2');
-const div1 = document.getElementById('div1')
-const header = document.querySelector('header')
+const div1 = document.getElementById('div1');
+const header = document.querySelector('header');
 const H1 = document.querySelector('h1');
+const btnSubmit = document.querySelector('.btnSubmit');
+const btnReset = document.querySelector('.btnReset');
+const displayImage = document.querySelector('.displayImage')
+const imgUpload = document.getElementsByName('imgUpload');
+const txtInput = document.getElementsByName('txtInput');
+txtInput.hidden = true;
+
 H1.classList.add('flex-center');
 
 let activeLink = '';
 
 const mainMenuPageHdgs = (value) => {
     whosActive = value;
+    H2.replaceWith('');
     if(value === 'about') {
         (() => {
-            H2.replaceWith('');
             H1.innerText = 'About Our Shared Portfolio';
         })();
     } else if(value === 'kitchens') {
         (() => {
-            H2.replaceWith('');
             H1.innerText = 'The All Things Kitchen Portfolio'
             H2.classList.add('kitchen')
             H2.innerHTML = `<span class="bold">Everything Kitchen: &nbsp</span> (<i> wishlist, recipes, images, current/dream kitchen, etc.</li>)`;
@@ -140,33 +147,33 @@ const mainMenuPageHdgs = (value) => {
         })();
     } else if(value === 'baths') {
         (() => {
-            H2.replaceWith('');
             H1.innerText = 'Portfolio of Our Amazing Bathrooms';
         })();
     } else if(value === 'gardens') {
         (() => {
-            H2.replaceWith('');
             H1.innerText = 'Portfolio of the Green and Brown Thumbed';
         })();
     } else if(value === 'animals') {
         (() => {
-            H2.replaceWith('');
             H1.innerText = 'The Portfolio of Our Friends and  Food';
         })();
     } else if(value === 'sports') {
         (() => {
-            H2.replaceWith('');
             H1.innerText = 'The Portfolio of All Things Sports';
         })();
     } else if(value === 'holidays') {
         (() => {
-            H2.replaceWith('');
             H1.innerText = 'Holiday Portfolio';
         })();
     }
 }
 
 const kitchen = (value) => {
+    txtInput.hidden = false;
+    imgUpload.hidden = false;
+    // displayImage.hidden = false;
+    btnReset.hidden = false;
+    btnSubmit.hidden = false;
     if(value === 'Current...') {
         (() => {
             H1.innerText = 'Current Kitchens';
@@ -460,3 +467,7 @@ subMenu1.addEventListener('click', (e) => {
     }
 })
 
+btnSubmit.addEventListener('click', (e) => {
+    if (imgUpload.value === null) { console.log('IMAGE REQUIRED')}
+})
+btnReset.addEventListener('click', (e) => {})
