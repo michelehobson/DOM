@@ -115,6 +115,8 @@ subMenu2.style.top = '0';
 loadMenu();
 
 let whosActive = '';
+let imageUploaded = false;
+
 
 let H2 = document.querySelector('h2');
 const div1 = document.getElementById('div1');
@@ -462,6 +464,7 @@ subMenu1.addEventListener('click', (e) => {
                 default:
                     break;
             }
+
         } else if(e.target.text !== 'Recipes') {
             subMenu2.innerHTML = '';
         }
@@ -478,34 +481,57 @@ btnSubmit.addEventListener('click', (e) => {
             const node = document.createTextNode('Invalid File Type');
             h3.appendChild(node);
             const s1 = document.getElementById('s1');
-            s1.append(document.getElementById('s1').firstElementChild.textContent)
-            console.log('firstElementChild: ' + document.getElementById('s1').firstElementChild.textContent)
+            s1.append(document.getElementById('s1').firstElementChild.textContent);
+            console.log('firstElementChild: ' + document.getElementById('s1').firstElementChild.textContent);
             stopTheSubmission = true
         }
     } else {
         imgUpload = document.getElementById('output');
-        image.src = URL.createObjectURL(e.target.files[0])
+        image.src = URL.createObjectURL(e.target.files[0]);
+        imageUploaded = true;
     }
     if(txtInput.length === 0) {
         txtInput.focus();
-        stopTheSubmission = true
+        stopTheSubmission = true;
     }
 
     if(!stopTheSubmission) {
-        
+        H2.replaceWith('');
+        switch(whosActive) {
+            case 'kitchens':
+                kitchen(e.target.text);
+                break;
+            case 'baths':
+                bath(e.target.text);
+                break;
+            case 'gardens':
+                garden(e.target.text);
+                break;
+            case 'animals':
+                animal(e.target.text);
+                break;
+            case 'sports':
+                sport(e.target.text);
+                break;
+            case 'holidays':
+                holiday(e.target.text);
+                break;
+            default:
+                break;
+        }
     }
 })
 
 imgUpload.addEventListener('click', (e) => {
     growImage = document.getElementById('imgUpload');
     growImage.classList.add('growImage');
-    const url = growImage.getAttribute('src');
+    // const url = growImage.getAttribute('src');
     window.open(url, 'Image')
 })
 
 btnReset.addEventListener('click', (e) => {
     txtInput.value = '';
     const file =
-                document.querySelector('#imgUpload');
-            file.value = '';
+        document.querySelector('#imgUpload');
+    file.value = '';
 })
