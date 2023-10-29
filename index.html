@@ -26,7 +26,7 @@
         <form action="" id="form" class="form">
             <section class="s1" id="s1">
                 <h3 id="iFt"></h3>
-                <input type="file" id="imgUpload" onchange="loadImg(event)" style="display: none;" accept="image/*" name="image">
+                <input type="file" id="imgUpload" style="display: none;" accept="image/*" name="image">
                 <label for="imgUpload" class="imgLabel" >Upload Image</label>
             </section>
             <section class="s2">
@@ -48,12 +48,6 @@
     </main>
     <footer></footer>
     <script src="src/main.js"></script>
-    <script>
-        let loadImg = function (event) {
-            var image = document.getElementById('output');
-            image.src = URL.createObjectURL(event.target.files[0]);
-        };
-    </script>
 </body>
 
 </html>

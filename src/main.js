@@ -127,6 +127,7 @@ const btnSubmit = document.querySelector('#btnSubmit');
 const btnReset = document.querySelector('#btnReset');
 const displayImage = document.querySelector('.displayImage')
 const imgUpload = document.querySelector('#imgUpload');
+let url;
 let txtInput = document.getElementsByName('txtInput');
 
 txtInput.hidden = true;
@@ -190,11 +191,9 @@ const writeLocal = (key) => {
         p.innerText = document.querySelector('#txtInput').value;
         readWrite.appendChild(p);
 
-        // p.innerText = document.querySelector('#txtInput').value;
-        // readWrite.appendChild(p);
-
-        const i = document.createElement('IMG');
-        output = document.querySelector('#imgUpload').value;
+        let i = document.createElement('IMG');
+        i.value = document.querySelector('#imgUpload').value;
+        i.src = url;
         readWrite.appendChild(i);
 
         localStorage.setItem(key, readAndWrite.innerHTML);
@@ -218,26 +217,32 @@ const kitchen = (value) => {
     } else if(value === 'Dream...') {
         (() => {
             H1.innerText = 'Dream Kitchens';
+            writeLocal('kitDream');
         })();
     } else if(value === 'Ideas') {
         (() => {
             H1.innerText = 'Kitchen Ideas';
+            writeLocal('kitIdeas');
         })();
     } else if(value === 'Memories') {
         (() => {
             H1.innerText = 'Kitchen Memories';
+            writeLocal('kitMemory');
         })();
     } else if(value === 'Recipes') {
         (() => {
             H1.innerText = 'Recipes';
+            writeLocal('kitRecipes');
         })();
     } else if(value === 'Wishlist') {
         (() => {
             H1.innerText = 'Kitchen Wishlist';
+            writeLocal('kitWish');
         })();
     } else if(value === 'Questions') {
         (() => {
             H1.innerText = 'Kitchen Questions';
+            writeLocal('kitQA');
         })();
     }
 
@@ -248,22 +253,27 @@ const bath = (value) => {
     if(value === 'Current...') {
         (() => {
             H1.innerText = 'Current Bathroom';
+            writeLocal('bathCur');
         })();
     } else if(value === 'Dream...') {
         (() => {
             H1.innerText = 'Dream Bathrooms';
+            writeLocal('bathDream');
         })();
     } else if(value === 'Ideas') {
         (() => {
             H1.innerText = 'Bathroom Ideas';
+            writeLocal('bathIdeas');
         })();
     } else if(value === 'Wishlist') {
         (() => {
             H1.innerText = 'Bathroom Wishlist';
+            writeLocal('bathWish');
         })();
     } else if(value === 'Questions') {
         (() => {
             H1.innerText = 'Bathroom Questions';
+            writeLocal('bathQA');
         })();
     }
 }
@@ -272,42 +282,52 @@ const garden = (value) => {
     if(value === 'Fertilizers') {
         (() => {
             H1.innerText = 'Fertilizers';
+            writeLocal('garFert');
         })();
     } else if(value === 'Flowers') {
         (() => {
             H1.innerText = 'Flowers';
+            writeLocal('garFlwr');
         })();
     } else if(value === 'Fruits') {
         (() => {
-            H1.innerText = 'Fruits';
+            H1.innerText = 'Fruits & Vegetables';
+            writeLocal('garFruits');
         })();
     } else if(value === 'Grass') {
         (() => {
             H1.innerText = 'Grass';
+            writeLocal('garGrass');
         })();
     } else if(value === 'Greenhouse') {
         (() => {
             H1.innerText = 'Greenhouse';
+            writeLocal('garHouse');
         })();
     } else if(value === 'Landscapes') {
         (() => {
             H1.innerText = 'Landscapes';
+            writeLocal('garScapes');
         })();
     } else if(value === 'Questions') {
         (() => {
             H1.innerText = 'Garden Questions';
+            writeLocal('garQA');
         })();
     } else if(value === 'Shrubs') {
         (() => {
             H1.innerText = 'Shrubs';
+            writeLocal('garShrubs');
         })();
     } else if(value === 'Snakes') {
         (() => {
             H1.innerText = 'Snakes';
+            writeLocal('garSnakes');
         })();
     } else if(value === 'Trees') {
         (() => {
             H1.innerText = 'Trees';
+            writeLocal('garTrees');
         })();
     }
 }
@@ -316,26 +336,33 @@ const animal = (value) => {
     if(value === 'Pets') {
         (() => {
             H1.innerText = 'Pets';
+            writeLocal('aniPets');
         })();
     } else if(value === 'Food') {
         (() => {
             H1.innerText = 'Animals For Food';
+            writeLocal('aniFood');
         })();
     } else if(value === 'For Sale') {
         (() => {
             H1.innerText = 'Animals For Sale';
+            writeLocal('ani4Sale');
         })();
     } else if(value === 'Memories') {
         (() => {
             H1.innerText = 'Memories of Animals';
+            writeLocal('aniMemory');
         })();
     } else if(value === 'Wishlist') {
         (() => {
             H1.innerText = 'Animal Wishlist';
+            writeLocal('aniWish');
         })();
+            writeLocal('ani');
     } else if(value === 'Questions') {
         (() => {
             H1.innerText = 'Animal Questions';
+            writeLocal('aniQA');
         })();
     }
 }
@@ -344,38 +371,47 @@ const sport = (value) => {
     if(value === 'Balling') {
         (() => {
             H1.innerText = 'Balling';
+            writeLocal('sportBall');
         })();
     } else if(value === 'Boating') {
         (() => {
             H1.innerText = 'Boating';
+            writeLocal('sportBoat');
         })();
     } else if(value === 'Cycling') {
         (() => {
             H1.innerText = 'Cycling';
+            writeLocal('sportCycle');
         })();
     } else if(value === 'Fishing') {
         (() => {
             H1.innerText = 'Fishing';
+            writeLocal('sportFish');
         })();
     } else if(value === 'Golfing') {
         (() => {
             H1.innerText = 'Golfing';
+            writeLocal('sportGolf');
         })();
     } else if(value === 'Hunting') {
         (() => {
             H1.innerText = 'Hunting';
+            writeLocal('sportHunt');
         })();
     } else if(value === 'Memories') {
         (() => {
             H1.innerText = 'Sports Memories';
+            writeLocal('sportMemory');
         })();
     } else if(value === 'Running') {
         (() => {
             H1.innerText = 'Running';
+            writeLocal('sportRun');
         })();
     } else if(value === 'Swimming') {
         (() => {
             H1.innerText = 'Swimming';
+            writeLocal('sportSwim');
         })();
     }
 }
@@ -384,50 +420,62 @@ const holiday = (value) => {
     if(value === 'Christmas') {
         (() => {
             H1.innerText = 'Christmas';
+            writeLocal('holXmas');
         })();
     } else if(value === 'Cinco de Mayo') {
         (() => {
             H1.innerText = 'Cinco de Mayo';
+            writeLocal('holCinco');
         })();
     } else if(value === 'Easter') {
         (() => {
             H1.innerText = 'Easter';
+            writeLocal('holEaster');
         })();
     } else if(value === 'Hanukkah') {
         (() => {
             H1.innerText = 'Hanukkah';
+            writeLocal('holHanuka');
         })();
     } else if(value === 'Labor Day') {
         (() => {
             H1.innerText = 'Labor Day';
+            writeLocal('holLabor');
         })();
     } else if(value === 'Martin Luther King Day') {
         (() => {
             H1.innerText = 'Martin Luther King Day';
+            writeLocal('holMLK');
         })();
     } else if(value === 'Memorial Day') {
         (() => {
             H1.innerText = 'Memorial Day';
+            writeLocal('holMem');
         })();
     } else if(value === 'Juneteenth') {
         (() => {
+            writeLocal('holJune');
             H1.innerText = 'Juneteenth';
         })();
     } else if(value === 'New Year\'s') {
         (() => {
             H1.innerText = 'New Year\'s';
+            writeLocal('holNewYr');
         })();
     } else if(value === 'St Patrick\'s Day') {
         (() => {
             H1.innerText = 'St Patrick\'s Day';
+            writeLocal('holPatty');
         })();
     } else if(value === 'Thanksgiving') {
         (() => {
             H1.innerText = 'Thanksgiving';
+            writeLocal('holThanks');
         })();
     } else if(value === 'Veteran\'s Day') {
         (() => {
             H1.innerText = 'Veteran\'s Day';
+            writeLocal('holVet');
         })();
     }
 }
@@ -513,6 +561,20 @@ subMenu1.addEventListener('click', (e) => {
     }
 })
 
+imgUpload.addEventListener('change', () => {
+    const reader = new FileReader();
+    reader.readAsDataURL(imgUpload.files[0]);
+    reader.addEventListener('load', () => {
+        url = reader.result;
+        // console.log('url: ' + url)
+        // const img = new Image;
+        // img.src = url;
+        // document.body.appendChild(img);
+        var image = document.getElementById('output');
+        image.src = url;
+    })
+})
+
 btnSubmit.addEventListener('click', (e) => {
     e.preventDefault();
     let stopTheSubmission = false;
@@ -545,7 +607,6 @@ btnSubmit.addEventListener('click', (e) => {
         switch(whosActive) {
             case 'kitchens':
                 kitchen(activeSubLink);
-                console.log('activeSubLink: ' + activeSubLink)
                 break;
             case 'baths':
                 bath(activeSubLink);
