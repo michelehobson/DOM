@@ -29,10 +29,9 @@ const menuItems = [
     },
     {
         text: 'baths', href: '#', subLinks: [
-            {text: 'Current Bath', href: '#'},
-            {text: 'Dream Bath', href: '#'},
+            {text: 'Current...', href: '#'},
+            {text: 'Dream...', href: '#'},
             {text: 'Ideas', href: '#'},
-            {text: 'Memories', href: '#'},
             {text: 'Wishlist', href: '#'},
             {text: 'Questions', href: '#'},
         ]
@@ -137,10 +136,9 @@ let H2 = document.querySelector('h2');
 const div1 = document.getElementById('div1')
 const header = document.querySelector('header')
 const H1 = document.querySelector('h1');
-H1.classList.add('flex-center')
+H1.classList.add('flex-center');
 
 let activeLink = '';
-
 
 mainMenu.addEventListener('click', (e) => {
     e.preventDefault();
@@ -187,6 +185,7 @@ subMenu1.addEventListener('click', (e) => {
             anchor.classList.remove('activeLink');
             subMenu2.style.top = '0';
         } else if(e.target === anchor && anchor.classList.contains('activeLink')) {
+            H2.replaceWith('');
             switch(whosActive) {
                 case 'kitchens':
                     kitchen(e.target.text);
@@ -214,286 +213,6 @@ subMenu1.addEventListener('click', (e) => {
         }
     }
 })
-
-const kitchen = (value) => {
-    H2.classList.add('subMenu1Header')
-    if(value === 'Current...') {
-        (() => {
-            // H2.replaceWith('');
-
-            H2.replaceWith('');
-            H1.innerText = 'Current Kitchens';
-            // H2.classList.add('kitchen')
-            H2.innerHTML = 'Kitchens';
-            div1.append(H2);
-        })();
-    } else if(value === 'Dream...') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Dream Kitchens';
-        })();
-    } else if(value === 'Ideas') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Ideas';
-        })();
-    } else if(value === 'Memories') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Memories';
-        })();
-    } else if(value === 'Recipes') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Recipes';
-        })();
-    } else if(value === 'Wishlist') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Wishlist';
-        })();
-    } else if(value === 'Questions') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Questions';
-        })();
-    }
-}
-
-const bath = (value) => {
-    if(value === 'Current Bath') {
-        (() => {
-            H2.replaceWith('Current Bath');
-            H1.innerText = 'Bath';
-        })();
-    } else if(value === 'Dream Bath') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Dream Bath';
-        })();
-    } else if(value === 'Ideas') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Ideas';
-        })();
-    } else if(value === 'Memories') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Memories';
-        })();
-    } else if(value === 'Wishlist') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Wishlist';
-        })();
-    } else if(value === 'Questions') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Questions';
-        })();
-    }
-}
-
-const garden = (value) => {
-    if(value === 'Fertilizers') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Fertilizers';
-        })();
-    } else if(value === 'Flowers') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Flowers';
-        })();
-    } else if(value === 'Fruits') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Fruits';
-        })();
-    } else if(value === 'Grass') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Grass';
-        })();
-    } else if(value === 'Greenhouse') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Greenhouse';
-        })();
-    } else if(value === 'Landscapes') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Landscapes';
-        })();
-    } else if(value === 'Questions') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Questions';
-        })();
-    } else if(value === 'Shrubs') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Shrubs';
-        })();
-    } else if(value === 'Snakes') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Snakes';
-        })();
-    } else if(value === 'Trees') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Trees';
-        })();
-    }
-}
-
-const animal = (value) => {
-    if(value === 'Pets') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Pets';
-        })();
-    } else if(value === 'Food') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Food';
-        })();
-    } else if(value === 'For Sale') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Animals For Sale';
-        })();
-    } else if(value === 'Memories') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Memories of Animals';
-        })();
-    } else if(value === 'Wishlist') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Wishlist';
-        })();
-    } else if(value === 'Questions') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Questions';
-        })();
-    }
-}
-
-const sport = (value) => {
-    if(value === 'Balling') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Balling';
-        })();
-    } else if(value === 'Boating') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Boating';
-        })();
-    } else if(value === 'Cycling') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Cycling';
-        })();
-    } else if(value === 'Fishing') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Fishing';
-        })();
-    } else if(value === 'Golfing') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Golfing';
-        })();
-    } else if(value === 'Hunting') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Hunting';
-        })();
-    } else if(value === 'Memories') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Sports Memories';
-        })();
-    } else if(value === 'Running') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Running';
-        })();
-    } else if(value === 'Swimming') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Swimming';
-        })();
-    }
-}
-
-const holiday = (value) => {
-    if(value === 'Christmas') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Christmas';
-        })();
-    } else if(value === 'Cinco de Mayo') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Cinco de Mayo';
-        })();
-    } else if(value === 'Easter') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Easter';
-        })();
-    } else if(value === 'Hanukkah') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Hanukkah';
-        })();
-    } else if(value === 'Labor Day') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Labor Day';
-        })();
-    } else if(value === 'Martin Luther King Day') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Martin Luther King Day';
-        })();
-    } else if(value === 'Memorial Day') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Memorial Day';
-        })();
-    } else if(value === 'Juneteenth') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Juneteenth';
-        })();
-    } else if(value === 'New Year\'s') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'New Year\'s';
-        })();
-    } else if(value === 'St Patrick\'s Day') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'St Patrick\'s Day';
-        })();
-    } else if(value === 'Thanksgiving') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Thanksgiving';
-        })();
-    } else if(value === 'Veteran\'s Day') {
-        (() => {
-            H2.replaceWith('');
-            H1.innerText = 'Veteran\'s Day';
-        })();
-    }
-}
 
 const mainMenuPageHdgs = (value) => {
     whosActive = value;
@@ -534,6 +253,226 @@ const mainMenuPageHdgs = (value) => {
         (() => {
             H2.replaceWith('');
             H1.innerText = 'Holiday Portfolio';
+        })();
+    }
+}
+
+const kitchen = (value) => {
+    if(value === 'Current...') {
+        (() => {
+            H1.innerText = 'Current Kitchens';
+        })();
+    } else if(value === 'Dream...') {
+        (() => {
+            H1.innerText = 'Dream Kitchens';
+        })();
+    } else if(value === 'Ideas') {
+        (() => {
+            H1.innerText = 'Kitchen Ideas';
+        })();
+    } else if(value === 'Memories') {
+        (() => {
+            H1.innerText = 'Kitchen Memories';
+        })();
+    } else if(value === 'Recipes') {
+        (() => {
+            H1.innerText = 'Recipes';
+        })();
+    } else if(value === 'Wishlist') {
+        (() => {
+            H1.innerText = 'Kitchen Wishlist';
+        })();
+    } else if(value === 'Questions') {
+        (() => {
+            H1.innerText = 'Kitchen Questions';
+        })();
+    }
+}
+
+const bath = (value) => {
+    if(value === 'Current...') {
+        (() => {
+            H1.innerText = 'Current Bathroom';
+        })();
+    } else if(value === 'Dream...') {
+        (() => {
+            H1.innerText = 'Dream Bathrooms';
+        })();
+    } else if(value === 'Ideas') {
+        (() => {
+            H1.innerText = 'Bathroom Ideas';
+        })();
+    } else if(value === 'Wishlist') {
+        (() => {
+            H1.innerText = 'Bathroom Wishlist';
+        })();
+    } else if(value === 'Questions') {
+        (() => {
+            H1.innerText = 'Bathroom Questions';
+        })();
+    }
+}
+
+const garden = (value) => {
+    if(value === 'Fertilizers') {
+        (() => {
+            H1.innerText = 'Fertilizers';
+        })();
+    } else if(value === 'Flowers') {
+        (() => {
+            H1.innerText = 'Flowers';
+        })();
+    } else if(value === 'Fruits') {
+        (() => {
+            H1.innerText = 'Fruits';
+        })();
+    } else if(value === 'Grass') {
+        (() => {
+            H1.innerText = 'Grass';
+        })();
+    } else if(value === 'Greenhouse') {
+        (() => {
+            H1.innerText = 'Greenhouse';
+        })();
+    } else if(value === 'Landscapes') {
+        (() => {
+            H1.innerText = 'Landscapes';
+        })();
+    } else if(value === 'Questions') {
+        (() => {
+            H1.innerText = 'Garden Questions';
+        })();
+    } else if(value === 'Shrubs') {
+        (() => {
+            H1.innerText = 'Shrubs';
+        })();
+    } else if(value === 'Snakes') {
+        (() => {
+            H1.innerText = 'Snakes';
+        })();
+    } else if(value === 'Trees') {
+        (() => {
+            H1.innerText = 'Trees';
+        })();
+    }
+}
+
+const animal = (value) => {
+    if(value === 'Pets') {
+        (() => {
+            H1.innerText = 'Pets';
+        })();
+    } else if(value === 'Food') {
+        (() => {
+            H1.innerText = 'Animals For Food';
+        })();
+    } else if(value === 'For Sale') {
+        (() => {
+            H1.innerText = 'Animals For Sale';
+       })();
+    } else if(value === 'Memories') {
+        (() => {
+            H1.innerText = 'Memories of Animals';
+        })();
+    } else if(value === 'Wishlist') {
+        (() => {
+            H1.innerText = 'Animal Wishlist';
+        })();
+    } else if(value === 'Questions') {
+        (() => {
+            H1.innerText = 'Animal Questions';
+        })();
+    }
+}
+
+const sport = (value) => {
+    if(value === 'Balling') {
+        (() => {
+            H1.innerText = 'Balling';
+        })();
+    } else if(value === 'Boating') {
+        (() => {
+            H1.innerText = 'Boating';
+        })();
+    } else if(value === 'Cycling') {
+        (() => {
+            H1.innerText = 'Cycling';
+        })();
+    } else if(value === 'Fishing') {
+        (() => {
+            H1.innerText = 'Fishing';
+        })();
+    } else if(value === 'Golfing') {
+        (() => {
+            H1.innerText = 'Golfing';
+        })();
+    } else if(value === 'Hunting') {
+        (() => {
+            H1.innerText = 'Hunting';
+        })();
+    } else if(value === 'Memories') {
+        (() => {
+            H1.innerText = 'Sports Memories';
+        })();
+    } else if(value === 'Running') {
+        (() => {
+            H1.innerText = 'Running';
+        })();
+    } else if(value === 'Swimming') {
+        (() => {
+            H1.innerText = 'Swimming';
+        })();
+    }
+}
+
+const holiday = (value) => {
+    if(value === 'Christmas') {
+        (() => {
+            H1.innerText = 'Christmas';
+        })();
+    } else if(value === 'Cinco de Mayo') {
+        (() => {
+            H1.innerText = 'Cinco de Mayo';
+        })();
+    } else if(value === 'Easter') {
+        (() => {
+            H1.innerText = 'Easter';
+        })();
+    } else if(value === 'Hanukkah') {
+        (() => {
+            H1.innerText = 'Hanukkah';
+        })();
+    } else if(value === 'Labor Day') {
+        (() => {
+            H1.innerText = 'Labor Day';
+        })();
+    } else if(value === 'Martin Luther King Day') {
+        (() => {
+            H1.innerText = 'Martin Luther King Day';
+        })();
+    } else if(value === 'Memorial Day') {
+        (() => {
+            H1.innerText = 'Memorial Day';
+        })();
+    } else if(value === 'Juneteenth') {
+        (() => {
+            H1.innerText = 'Juneteenth';
+        })();
+    } else if(value === 'New Year\'s') {
+        (() => {
+            H1.innerText = 'New Year\'s';
+        })();
+    } else if(value === 'St Patrick\'s Day') {
+        (() => {
+            H1.innerText = 'St Patrick\'s Day';
+        })();
+    } else if(value === 'Thanksgiving') {
+        (() => {
+            H1.innerText = 'Thanksgiving';
+        })();
+    } else if(value === 'Veteran\'s Day') {
+        (() => {
+            H1.innerText = 'Veteran\'s Day';
         })();
     }
 }
