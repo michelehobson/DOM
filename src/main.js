@@ -6,23 +6,7 @@ const menuItems = [
             {text: 'Dream...', href: '#'},
             {text: 'Ideas', href: '#'},
             {text: 'Memories', href: '#'},
-            {
-                text: 'Recipes', href: '#', subLinks: [
-                    {
-                        text: 'Food', href: '#', subLinks: [
-                            {text: 'Adults', href: '#'},
-                            {text: 'Children', href: '#'},
-                            {text: 'Desserts', href: '#'},
-                        ]
-                    },
-                    {
-                        text: 'Beverages', href: '#', subLinks: [
-                            {text: 'Alcoholic', href: '#'},
-                            {text: 'Non-alcoholic', href: '#'},
-                        ]
-                    },
-                ]
-            },
+            {text: 'Recipes', href: '#'},
             {text: 'Wishlist', href: '#'},
             {text: 'Questions', href: '#'},
         ]
@@ -117,7 +101,6 @@ let mainMenu = document.querySelector('#whichSpace');
 mainMenu.classList.add('whichSpace', 'a');
 mainMenu.style.height = '100%';
 
-
 let subMenu1 = document.querySelector('#subMenu1');
 subMenu1.classList.add('subMenu1')
 subMenu1.style.height = '100%';
@@ -139,80 +122,6 @@ const H1 = document.querySelector('h1');
 H1.classList.add('flex-center');
 
 let activeLink = '';
-
-mainMenu.addEventListener('click', (e) => {
-    e.preventDefault();
-    if(e.target.tagName !== 'A') {
-        return;
-    }
-    e.target.classList.toggle('activeLink');
-
-    let allAnchorTags = document.querySelectorAll('a');
-    let i = 0, param = 0, active = false;
-    for(let anchor of allAnchorTags) {
-        if(e.target !== anchor && anchor.classList.contains('activeLink')) {
-            anchor.classList.remove('activeLink');
-            subMenu1.innerHTML = '';
-            subMenu1.style.top = '0';
-        } else if(anchor.classList.contains('activeLink') && e.target.text !== 'about' && e.target.text === anchor.text) {
-            param = i;
-            active = true;
-        } else {
-            subMenu1.innerHTML = '';
-            subMenu1.style.top = '0';
-        }
-        i++;
-    }
-
-    if(active) {
-        subMenu1.style.top = '100%'
-        buildSubMenu1(menuItems[param].subLinks);
-    }
-
-    mainMenuPageHdgs(e.target.text);
-})
-
-subMenu1.addEventListener('click', (e) => {
-    e.preventDefault();
-    if(e.target.tagName !== 'A') {
-        return;
-    }
-    e.target.classList.toggle('activeLink');
-
-    let allAnchorTags = document.querySelectorAll('a');
-    for(let anchor of allAnchorTags) {
-        if(e.target !== anchor && anchor.classList.contains('activeLink')) {
-            anchor.classList.remove('activeLink');
-            subMenu2.style.top = '0';
-        } else if(e.target === anchor && anchor.classList.contains('activeLink')) {
-            H2.replaceWith('');
-            switch(whosActive) {
-                case 'kitchens':
-                    kitchen(e.target.text);
-                    break;
-                case 'baths':
-                    bath(e.target.text);
-                    break;
-                case 'gardens':
-                    garden(e.target.text);
-                    break;
-                case 'animals':
-                    animal(e.target.text);
-                    break;
-                case 'sports':
-                    sport(e.target.text);
-                    break;
-                case 'holidays':
-                    holiday(e.target.text);
-                    break;
-                default:
-                    break;
-            }
-        } else if(e.target.text !== 'Recipes') {
-            subMenu2.innerHTML = '';
-        }
-    }
-})
 
 const mainMenuPageHdgs = (value) => {
     whosActive = value;
@@ -369,7 +278,7 @@ const animal = (value) => {
     } else if(value === 'For Sale') {
         (() => {
             H1.innerText = 'Animals For Sale';
-       })();
+        })();
     } else if(value === 'Memories') {
         (() => {
             H1.innerText = 'Memories of Animals';
@@ -476,3 +385,78 @@ const holiday = (value) => {
         })();
     }
 }
+
+mainMenu.addEventListener('click', (e) => {
+    e.preventDefault();
+    if(e.target.tagName !== 'A') {
+        return;
+    }
+    e.target.classList.toggle('activeLink');
+
+    let allAnchorTags = document.querySelectorAll('a');
+    let i = 0, param = 0, active = false;
+    for(let anchor of allAnchorTags) {
+        if(e.target !== anchor && anchor.classList.contains('activeLink')) {
+            anchor.classList.remove('activeLink');
+            subMenu1.innerHTML = '';
+            subMenu1.style.top = '0';
+        } else if(anchor.classList.contains('activeLink') && e.target.text !== 'about' && e.target.text === anchor.text) {
+            param = i;
+            active = true;
+        } else {
+            subMenu1.innerHTML = '';
+            subMenu1.style.top = '0';
+        }
+        i++;
+    }
+
+    if(active) {
+        subMenu1.style.top = '100%'
+        buildSubMenu1(menuItems[param].subLinks);
+    }
+
+    mainMenuPageHdgs(e.target.text);
+})
+
+subMenu1.addEventListener('click', (e) => {
+    e.preventDefault();
+    if(e.target.tagName !== 'A') {
+        return;
+    }
+    e.target.classList.toggle('activeLink');
+
+    let allAnchorTags = document.querySelectorAll('a');
+    for(let anchor of allAnchorTags) {
+        if(e.target !== anchor && anchor.classList.contains('activeLink')) {
+            anchor.classList.remove('activeLink');
+            subMenu2.style.top = '0';
+        } else if(e.target === anchor && anchor.classList.contains('activeLink')) {
+            H2.replaceWith('');
+            switch(whosActive) {
+                case 'kitchens':
+                    kitchen(e.target.text);
+                    break;
+                case 'baths':
+                    bath(e.target.text);
+                    break;
+                case 'gardens':
+                    garden(e.target.text);
+                    break;
+                case 'animals':
+                    animal(e.target.text);
+                    break;
+                case 'sports':
+                    sport(e.target.text);
+                    break;
+                case 'holidays':
+                    holiday(e.target.text);
+                    break;
+                default:
+                    break;
+            }
+        } else if(e.target.text !== 'Recipes') {
+            subMenu2.innerHTML = '';
+        }
+    }
+})
+
