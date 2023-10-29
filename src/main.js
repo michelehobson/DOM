@@ -199,7 +199,7 @@ const writeLocal = (key) => {
 
         localStorage.setItem(key, readAndWrite.innerHTML);
         localStorage.getItem(key);
-        alert("localStorage (Key):\n" + localStorage.getItem(key));
+        // alert("localStorage (Key):\n" + localStorage.getItem(key));
     }
 }
 
@@ -212,6 +212,7 @@ const kitchen = (value) => {
     if(value === 'Current...') {
         (() => {
             H1.innerText = 'Current Kitchens';
+            localStorage.getItem('kitCur')
             writeLocal('kitCur');
         })();
     } else if(value === 'Dream...') {

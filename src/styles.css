@@ -17,6 +17,7 @@
     font-family: 'Kay Pho Du', serif;
     font-weight: 400;
     font-size: 3em;
+    margin-top: 50px;
 }
 
 .subMenu1 {
@@ -66,7 +67,6 @@
 
 .activeLink {
     background-color: rgba(137, 43, 226);
-    /* box-shadow: 10px 10px 15px  rgba(137, 43, 226); */
     box-shadow: 5px 2px 7.5px 0px rgba(137, 43, 226);
     color: white;
     padding: 0px 10px 0px 10px;
@@ -94,10 +94,10 @@ a {
 
 .txtArea {
     resize: none;
+    font-size: 1em;
 }
 
-.s1,
-.s2 {
+.s1, .s2 {
     margin-bottom: 50px;
 }
 
@@ -131,6 +131,12 @@ a {
 .readWrite {
     border: 1px solid red;
     margin: 5px;
+    outline: 1px solid #888;
+    border: 0px solid #918989;
+    border-radius: 5px;
+    width: 70vw;
+    height: fit-content;
+    margin: 50px auto 50px auto;
 }
 
 p,
@@ -143,4 +149,5 @@ h1 {
     font-size: 2em;
     color: black;
     text-align: left;
+    background-color: rgb(166, 235, 28);
 }
