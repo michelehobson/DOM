@@ -137,15 +137,19 @@ a {
     height: fit-content;
     margin: 50px auto 50px auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     flex-flow: column wrap;
+    
 }
 
 .readWrite img {
     width: 100px;
     display: flex;
-    justify-content: flex-end;
-    flex-flow: column;
+    /* justify-content: flex-start; */
+    align-self: flex-end;
+    /* margin-top: -80px; */
+    margin: -80px 5px 5px 0px;
+  
 }
 
 p, h1 {

@@ -34,4 +34,4 @@ I would have also had liked to:
 1. Move the alert for the input type of "file" into imgUpload() Add Event Listener.
 2. Populate the topics with data saved in local storage when the page is loaded.
 3. Style the base pages (about, kitchens, baths, ...)
-4. Fix the output area where local storage data is displayed.
+4. FIXED - Fix the output area where local storage data is displayed.
